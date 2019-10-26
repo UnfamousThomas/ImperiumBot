@@ -19,13 +19,14 @@ public class MySQLManager {
             HikariConfig hikariConfig = new HikariConfig();
             hikariConfig.setJdbcUrl("jdbc:mysql://" + ip + ":3306/" + db);
             hikariConfig.setUsername(user);
-            hikariConfig.setPassword(password);
+            //hikariConfig.setPassword(password);
             hikariConfig.setMaxLifetime(300 * 1000);
             hikariConfig.setIdleTimeout(120 * 1000);
             hikariConfig.setConnectionTimeout(10 * 1000);
             hikariConfig.setMinimumIdle(5);
             hikariConfig.setMaximumPoolSize(10);
             hikariConfig.setLeakDetectionThreshold(2000);
+
             try {
                 dataSource = new HikariDataSource(hikariConfig);
             } catch (Exception e) {

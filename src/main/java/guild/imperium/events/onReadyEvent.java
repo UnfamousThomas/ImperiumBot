@@ -3,6 +3,7 @@ package guild.imperium.events;
 import guild.imperium.commands.api.BotSettings;
 import guild.imperium.commands.api.DiscordCommandManager;
 import guild.imperium.utils.Logger;
+import guild.imperium.utils.mysql.MySQLManager;
 import net.dv8tion.jda.api.events.GenericEvent;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.hooks.EventListener;
@@ -14,8 +15,10 @@ public class onReadyEvent implements EventListener {
 	public void onEvent(@Nonnull GenericEvent event) {
 		if(event instanceof ReadyEvent) {
 			//Register listeners:
+			//jdbc:mysql://localhost:3306/ImperiumBot
+			//Intialize the things
 			DiscordCommandManager.init();
-
+			MySQLManager.init("localhost", "imperiumbot", "root", null);
 			//Log:
 			Logger.log(Logger.Level.SUCCESS, "Successfully registered listeners.");
 
