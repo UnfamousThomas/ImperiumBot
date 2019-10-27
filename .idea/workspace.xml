@@ -2,17 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d953f1b-5d8f-4eff-b4d0-912f059311ef" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/guild/imperium/commands/api/BotSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/guild/imperium/commands/api/BotSettings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/guild/imperium/commands/api/DiscordCommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/guild/imperium/commands/api/DiscordCommandManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/guild/imperium/events/onReadyEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/guild/imperium/events/onReadyEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/guild/imperium/utils/mysql/MySQLManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/guild/imperium/utils/mysql/MySQLManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/ImperiumBot.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/guild/imperium/ImperiumBot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/guild/imperium/ImperiumBot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/guild/imperium/commands/stop.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/guild/imperium/events/onReadyEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/guild/imperium/events/onReadyEvent.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/guild/imperium/utils/Logger.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/guild/imperium/utils/Logger.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/guild/imperium/utils/mysql/MySQLManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/guild/imperium/utils/mysql/MySQLManager.class" afterDir="false" />
@@ -34,7 +29,12 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="imperiumbot@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -61,7 +61,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tests" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MirrorGamesNetwork" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.155" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -69,6 +69,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="guild.imperium.events" />
       <recent name="guild.imperium.commands.api" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -143,7 +144,12 @@
     <option name="allServicesViewState">
       <serviceView>
         <treeState>
-          <expand />
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@419898c4" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+          </expand>
           <select />
         </treeState>
       </serviceView>
@@ -159,7 +165,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1572111001842</updated>
-      <workItem from="1572111006667" duration="4758000" />
+      <workItem from="1572111006667" duration="6694000" />
+      <workItem from="1572184591102" duration="15911000" />
     </task>
     <servers />
   </component>
@@ -171,7 +178,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

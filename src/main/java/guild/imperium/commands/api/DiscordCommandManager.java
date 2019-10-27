@@ -31,9 +31,9 @@ public class DiscordCommandManager extends ListenerAdapter {
 
     public static void init(){
         DiscordCommandManager manager = new DiscordCommandManager();
-
-	    ImperiumBot.getJda().addEventListener(manager);
         instance = manager;
+        ImperiumBot.getJda().addEventListener(manager);
+
 
     }
 

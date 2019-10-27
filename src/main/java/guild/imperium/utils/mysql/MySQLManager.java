@@ -19,7 +19,7 @@ public class MySQLManager {
             HikariConfig hikariConfig = new HikariConfig();
             hikariConfig.setJdbcUrl("jdbc:mysql://" + ip + ":3306/" + db);
             hikariConfig.setUsername(user);
-            //hikariConfig.setPassword(password);
+            hikariConfig.setPassword(password);
             hikariConfig.setMaxLifetime(300 * 1000);
             hikariConfig.setIdleTimeout(120 * 1000);
             hikariConfig.setConnectionTimeout(10 * 1000);
@@ -29,6 +29,8 @@ public class MySQLManager {
 
             try {
                 dataSource = new HikariDataSource(hikariConfig);
+                Logger.log(Logger.Level.SUCCESS, "Connected to SQL database.");
+
             } catch (Exception e) {
                 Logger.log(Logger.Level.ERROR, "Could not connect to SQL with error: ", e);
             }
