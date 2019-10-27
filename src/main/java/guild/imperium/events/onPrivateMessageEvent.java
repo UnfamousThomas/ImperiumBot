@@ -12,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 public class onPrivateMessageEvent extends ListenerAdapter {
 
 	public void onMessageReceived(MessageReceivedEvent e) {
-		if(e.getChannelType() == ChannelType.PRIVATE && e.getMessage().getContentRaw().startsWith(BotSettings.PREFIX + "role")) {
+		if(e.getMessage().getContentRaw().startsWith(BotSettings.PREFIX + "claim")) {
 			String[] args = e.getMessage().getContentRaw().split(" ");
 			String code = args[1];
 

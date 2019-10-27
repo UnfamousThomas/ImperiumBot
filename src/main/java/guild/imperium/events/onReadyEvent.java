@@ -1,9 +1,11 @@
 package guild.imperium.events;
 
+import guild.imperium.commands.NewsCommand;
 import guild.imperium.commands.api.BotSettings;
 import guild.imperium.commands.api.DiscordCommandManager;
+import guild.imperium.commands.api.HelpCommand;
 import guild.imperium.commands.clearCommand;
-import guild.imperium.commands.roleAddCommand;
+import guild.imperium.commands.genCodeCommand;
 import guild.imperium.events.history.onGuildMessageDeleteEvent;
 import guild.imperium.events.history.onGuildMessageEvent;
 import guild.imperium.events.history.onGuildMessageUpdateEvent;
@@ -27,9 +29,12 @@ public class onReadyEvent implements EventListener {
 			MySQLManager.createTable("member_codes"," `id` INT NOT NULL AUTO_INCREMENT , `code` TEXT NULL , `role` BIGINT NOT NULL , `active` BOOLEAN NOT NULL DEFAULT TRUE , `made_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , `used_at` DATETIME NULL DEFAULT NULL , PRIMARY KEY (`id`)");
 			MySQLManager.createTable("message_edits", " `id` INT NOT NULL AUTO_INCREMENT , `message_id` BIGINT NOT NULL, `current_message` TEXT NOT NULL , `last_edited` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , `deleted` BOOLEAN NOT NULL, `editamount` INT NOT NULL , `author_id` BIGINT NOT NULL, PRIMARY KEY (`id`) ");
 			MySQLManager.createTable("punishment_points", "`id` INT NOT NULL AUTO_INCREMENT , `userid` BIGINT NOT NULL , `amount` INT NOT NULL , `assigned_at` DATETIME NOT NULL , `expires_at` DATETIME NOT NULL ,`reason` TEXT NOT NULL, PRIMARY KEY (`id`)");
+			MySQLManager.createTable("news_list"," `id` INT NOT NULL AUTO_INCREMENT , `member_id` BIGINT NOT NULL , PRIMARY KEY (`id`)");
 			DiscordCommandManager.init();
-			DiscordCommandManager.registerCommand(new roleAddCommand("Prince - Chief", "roleadd"), "roleadd");
+			DiscordCommandManager.registerCommand(new genCodeCommand("Prince - Chief"), "gencode");
 			DiscordCommandManager.registerCommand(new clearCommand("Duke - Captain"), "clear", "c");
+			DiscordCommandManager.registerCommand(new NewsCommand("Apprentice - Recruit"), "news","announce");
+			DiscordCommandManager.registerCommand(new HelpCommand("Apprentice - Recruit"), "help");
 
 			//Register listeners:
 			JDA jda = event.getJDA();

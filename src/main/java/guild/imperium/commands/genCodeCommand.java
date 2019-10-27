@@ -8,19 +8,20 @@ import org.apache.commons.lang3.RandomStringUtils;
 
 import java.util.List;
 
-public class roleAddCommand extends DiscordCommand {
+public class genCodeCommand extends DiscordCommand {
 
-	public roleAddCommand(String rank, String name) {
-		super(rank, name);
+	public genCodeCommand(String rank) {
+		super(rank, "gencode");
+		description = "Tag a role and get a join code.";
 	}
 
 	@Override
 	public void run(Member m, List<String> args, MessageReceivedEvent e) {
 		if(e.getMessage().getMentionedRoles().size() == 1) {
-			e.getChannel().sendMessage("test").queue();
 
 			long roleId = e.getMessage().getMentionedRoles().get(0).getIdLong();
 			AddCode(roleId, e);
+			e.getMessage().delete().queue();
 		}
 	}
 

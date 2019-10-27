@@ -27,6 +27,7 @@ public class Logger {
 				break;
 			case INFO:
 				System.out.println(BLUE + "[INFO] " + WHITE + message);
+				break;
 			case SUCCESS:
 				System.out.println(GREEN + "[SUCCESS] " + WHITE + message);
 				break;

@@ -18,6 +18,7 @@ import java.util.concurrent.TimeUnit;
 public class clearCommand  extends DiscordCommand {
 	public clearCommand(String rank) {
 		super(rank, "clear");
+		description = "Allows to clear the chat.";
 	}
 
 	@Override

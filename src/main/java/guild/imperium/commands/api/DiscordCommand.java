@@ -13,6 +13,11 @@ public abstract class DiscordCommand extends ListenerAdapter {
     Role role;
     final String name;
 
+    public int minArgs = 0;
+    public int maxArgs = Integer.MAX_VALUE;
+
+    protected String description = "No description set. Sorry!";
+
 
     public DiscordCommand(String rank, String name) {
         this.role = BotSettings.g.getRolesByName(rank, true).get(0);
@@ -20,6 +25,8 @@ public abstract class DiscordCommand extends ListenerAdapter {
     }
 
     public void execute(MessageReceivedEvent e, List<String> args) {
+        if(args.size() > maxArgs || args.size() < minArgs ) { e.getChannel().sendMessage("Invalid args."); return; }
+        if(!(e.getChannelType().isGuild())) return;
             if(RoleHierarchy.isHigherorEqualsRole(e.getMember().getRoles().get(0), role)) {
                 run(e.getMember(), args, e);
             } else {
