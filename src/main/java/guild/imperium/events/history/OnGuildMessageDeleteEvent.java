@@ -6,7 +6,7 @@ import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageDeleteEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
-public class onGuildMessageDeleteEvent extends ListenerAdapter {
+public class OnGuildMessageDeleteEvent extends ListenerAdapter {
 	public void onGuildMessageDelete(GuildMessageDeleteEvent e) {
 		MySQLManager.select("SELECT * FROM message_edits WHERE message_id =?", resultSet -> {
 			if(resultSet.next()) {

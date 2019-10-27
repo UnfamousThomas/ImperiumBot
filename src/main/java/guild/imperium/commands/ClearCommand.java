@@ -15,8 +15,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class clearCommand  extends DiscordCommand {
-	public clearCommand(String rank) {
+public class ClearCommand extends DiscordCommand {
+	public ClearCommand(String rank) {
 		super(rank, "clear");
 		description = "Allows to clear the chat.";
 	}

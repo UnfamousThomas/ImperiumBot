@@ -4,7 +4,7 @@ import guild.imperium.utils.mysql.MySQLManager;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
-public class onGuildMessageEvent extends ListenerAdapter {
+public class OnGuildMessageEvent extends ListenerAdapter {
 
 	public void onMessageReceived(MessageReceivedEvent e) {
 		if(!(e.getAuthor().isBot())) {

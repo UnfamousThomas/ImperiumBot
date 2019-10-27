@@ -2,7 +2,6 @@ package guild.imperium.commands.api;
 
 import com.google.common.collect.Lists;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class HelpManager {
@@ -32,7 +31,7 @@ public class HelpManager {
 				item = helpItem;
 
 			if(item == null) {
-				return "Command not found";
+				return "Command not found - try to find it in !help";
 			}
 			return  "Name: " + item.getName() +
 					"\nDescription: " + item.getDescription() +

@@ -4,11 +4,12 @@ import guild.imperium.commands.NewsCommand;
 import guild.imperium.commands.api.BotSettings;
 import guild.imperium.commands.api.DiscordCommandManager;
 import guild.imperium.commands.api.HelpCommand;
-import guild.imperium.commands.clearCommand;
-import guild.imperium.commands.genCodeCommand;
-import guild.imperium.events.history.onGuildMessageDeleteEvent;
-import guild.imperium.events.history.onGuildMessageEvent;
-import guild.imperium.events.history.onGuildMessageUpdateEvent;
+import guild.imperium.commands.ClearCommand;
+import guild.imperium.commands.GencodeCommand;
+import guild.imperium.commands.PunishCommand;
+import guild.imperium.events.history.OnGuildMessageDeleteEvent;
+import guild.imperium.events.history.OnGuildMessageEvent;
+import guild.imperium.events.history.OnGuildMessageUpdateEvent;
 import guild.imperium.utils.Logger;
 import guild.imperium.utils.mysql.MySQLManager;
 import net.dv8tion.jda.api.JDA;
@@ -18,7 +19,7 @@ import net.dv8tion.jda.api.hooks.EventListener;
 
 import javax.annotation.Nonnull;
 
-public class onReadyEvent implements EventListener {
+public class OnReadyEvent implements EventListener {
 	@Override
 	public void onEvent(@Nonnull GenericEvent event) {
 		if(event instanceof ReadyEvent) {
@@ -31,17 +32,18 @@ public class onReadyEvent implements EventListener {
 			MySQLManager.createTable("punishment_points", "`id` INT NOT NULL AUTO_INCREMENT , `userid` BIGINT NOT NULL , `amount` INT NOT NULL , `assigned_at` DATETIME NOT NULL , `expires_at` DATETIME NOT NULL ,`reason` TEXT NOT NULL, PRIMARY KEY (`id`)");
 			MySQLManager.createTable("news_list"," `id` INT NOT NULL AUTO_INCREMENT , `member_id` BIGINT NOT NULL , PRIMARY KEY (`id`)");
 			DiscordCommandManager.init();
-			DiscordCommandManager.registerCommand(new genCodeCommand("Prince - Chief"), "gencode");
-			DiscordCommandManager.registerCommand(new clearCommand("Duke - Captain"), "clear", "c");
+			DiscordCommandManager.registerCommand(new GencodeCommand("Prince - Chief"), "gencode");
+			DiscordCommandManager.registerCommand(new ClearCommand("Duke - Captain"), "clear", "c");
 			DiscordCommandManager.registerCommand(new NewsCommand("Apprentice - Recruit"), "news","announce");
 			DiscordCommandManager.registerCommand(new HelpCommand("Apprentice - Recruit"), "help");
+			DiscordCommandManager.registerCommand(new PunishCommand("Master - Captain"), "punish", "p");
 
 			//Register listeners:
 			JDA jda = event.getJDA();
-			jda.addEventListener(new onGuildMessageEvent());
-			jda.addEventListener(new onPrivateMessageEvent());
-			jda.addEventListener(new onGuildMessageUpdateEvent());
-			jda.addEventListener(new onGuildMessageDeleteEvent());
+			jda.addEventListener(new OnGuildMessageEvent());
+			jda.addEventListener(new OnVerifyCode());
+			jda.addEventListener(new OnGuildMessageUpdateEvent());
+			jda.addEventListener(new OnGuildMessageDeleteEvent());
 			Logger.log(Logger.Level.SUCCESS, "Successfully registered listeners.");
 
 

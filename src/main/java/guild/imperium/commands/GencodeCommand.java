@@ -8,9 +8,9 @@ import org.apache.commons.lang3.RandomStringUtils;
 
 import java.util.List;
 
-public class genCodeCommand extends DiscordCommand {
+public class GencodeCommand extends DiscordCommand {
 
-	public genCodeCommand(String rank) {
+	public GencodeCommand(String rank) {
 		super(rank, "gencode");
 		description = "Tag a role and get a join code.";
 	}
