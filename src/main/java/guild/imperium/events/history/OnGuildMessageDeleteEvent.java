@@ -8,12 +8,14 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class OnGuildMessageDeleteEvent extends ListenerAdapter {
 	public void onGuildMessageDelete(GuildMessageDeleteEvent e) {
-		MySQLManager.select("SELECT * FROM message_edits WHERE message_id =?", resultSet -> {
-			if(resultSet.next()) {
-				editLog(e.getChannel(), resultSet.getInt("editamount"), resultSet.getString("current_message"));
-				MySQLManager.execute("UPDATE message_edits SET deleted=?, last_edited= NOW() WHERE message_id=?", true, e.getMessageIdLong());
-			}
-		}, e.getMessageIdLong());
+		if (!(e.getChannel().getIdLong() == BotSettings.VERIFYCHANNEL) && !(e.getChannel().getIdLong() == BotSettings.BOTCOMMANDS) && !(e.getChannel().getIdLong() == BotSettings.SECRETBOTCOMMANDS)) {
+			MySQLManager.select("SELECT * FROM message_edits WHERE message_id =?", resultSet -> {
+				if (resultSet.next()) {
+					editLog(e.getChannel(), resultSet.getInt("editamount"), resultSet.getString("current_message"));
+					MySQLManager.execute("UPDATE message_edits SET deleted=?, last_edited= NOW() WHERE message_id=?", true, e.getMessageIdLong());
+				}
+			}, e.getMessageIdLong());
+		}
 	}
 
 	private void editLog(TextChannel channel, int edits, String message) {

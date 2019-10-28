@@ -4,6 +4,7 @@ import guild.imperium.events.OnReadyEvent;
 import guild.imperium.utils.Logger;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 
 public class ImperiumBot {
@@ -14,6 +15,8 @@ public class ImperiumBot {
 		JDABuilder builder = new JDABuilder("NjM3NzQ0MzAzNDA5NDYzMzI2.XbSoGA.3QmdKKLpbm2f1lzQ5YwKZ3Fa_LE");
 		builder.setActivity(Activity.playing("on Wynncraft!"));
 		builder.addEventListeners(new OnReadyEvent());
+		builder.setStatus(OnlineStatus.DO_NOT_DISTURB);
+
 		jda = builder.build();
 
 		Logger.log(Logger.Level.SUCCESS, "Successfully connected to discord.");

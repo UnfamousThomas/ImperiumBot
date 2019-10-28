@@ -21,10 +21,16 @@ public class HelpCommand extends DiscordCommand {
 	public void run(Member m, List<String> args, MessageReceivedEvent e) {
 		switch (args.size()) {
 			case 1:
-				e.getChannel().sendMessage(embedAll(e)).queue(message -> message.delete().queueAfter(5, TimeUnit.MINUTES));
+				e.getMember().getUser().openPrivateChannel().queue(channel -> {
+					channel.sendMessage(embedAll(e)).queue();
+				});
+				e.getMessage().delete().queue();
 				break;
 			case 2:
-				e.getChannel().sendMessage(embedCommand(e, args.get(1))).queue(message -> message.delete().queueAfter(5, TimeUnit.MINUTES));
+				e.getMember().getUser().openPrivateChannel().queue(channel -> {
+					channel.sendMessage(embedCommand(e, args.get(1))).queue();
+				});
+				e.getMessage().delete().queue();
 				break;
 		}
 	}
@@ -32,7 +38,7 @@ public class HelpCommand extends DiscordCommand {
 	private MessageEmbed embedCommand(MessageReceivedEvent e, String name) {
 		EmbedBuilder builder = new EmbedBuilder();
 		builder.setTitle("Help - " + name);
-		builder.setColor(Color.decode("#3498db"));
+		builder.setColor(Color.decode("#c2f949"));
 		builder.addField("Command:\n", ReturnCommandHelp(name), false);
 		builder.setFooter(e.getGuild().getName(), e.getGuild().getIconUrl());
 		return builder.build();
@@ -40,7 +46,7 @@ public class HelpCommand extends DiscordCommand {
 	private MessageEmbed embedAll(MessageReceivedEvent e) {
 		EmbedBuilder builder = new EmbedBuilder();
 		builder.setTitle("Help");
-		builder.setColor(Color.decode("#3498db"));
+		builder.setColor(Color.decode("#c2f949"));
 		builder.addField("Commands:\n", ReturnAllCommands(), false);
 		builder.setFooter(e.getGuild().getName(), e.getGuild().getIconUrl());
 		return builder.build();

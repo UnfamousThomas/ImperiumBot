@@ -7,7 +7,6 @@ import guild.imperium.utils.mysql.MySQLManager;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.MessageEmbed;
-import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.awt.*;
@@ -19,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 public class NewsCommand extends DiscordCommand {
 	public NewsCommand(String rank) {
 		super(rank, "news");
-		description = "publish & subscribe! | Lets the higher ups publish news and lowers to subscribe to them";
+		description = "publish & subscribe! | Lets the higher ups publish news and others to subscribe to the news.";
 	}
 
 	@Override
