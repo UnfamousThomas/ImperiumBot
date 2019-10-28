@@ -13,7 +13,6 @@ public class OnVerifyCode extends ListenerAdapter {
 
 	public void onMessageReceived(MessageReceivedEvent e) {
 		if(!(e.getMessage().getContentRaw().startsWith(BotSettings.PREFIX)) && e.getChannelType() == ChannelType.PRIVATE && !(e.getAuthor().isBot())) {
-			e.getMessage().delete().queue();
 			MySQLManager.select("SELECT * FROM member_codes WHERE code =? AND active = 1", resultSet -> {
 				if(resultSet.next()) {
 					Long role = resultSet.getLong("role");

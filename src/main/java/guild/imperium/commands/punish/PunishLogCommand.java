@@ -24,6 +24,7 @@ public class PunishLogCommand extends DiscordCommand {
 	}
 	@Override
 	public void run(Member m, List<String> args, MessageReceivedEvent e) {
+		System.out.println(getPoints(m.getIdLong()));
 		e.getChannel().sendMessage(embedder(e.getAuthor().getIdLong(), e)).queue();
 	}
 
@@ -40,16 +41,19 @@ public class PunishLogCommand extends DiscordCommand {
 	private String getPoints(long id) {
 		StringBuilder builder = new StringBuilder();
 		MySQLManager.select("SELECT * FROM punishment_points WHERE userid=?", resultSet -> {
-				while (resultSet.next()) {
-					String newline = "UUID: " + resultSet.getString("UUID") + "\nPoints:" + resultSet.getInt("amount") + "\nPunished by: " + BotSettings.g.getMemberById(resultSet.getLong("executor")).getEffectiveName() + "\nReason:" + resultSet.getString("reason");
-					builder.append(newline);
-				}
+			while(resultSet.next()) {
+					builder.append("UUID: ").append(resultSet.getString("UUID")).append("\nPoints:").append(resultSet.getInt("amount")).append("\nPunished by: ").append(BotSettings.g.getMemberById(resultSet.getLong("executor")).getEffectiveName()).append("\nReason:").append(resultSet.getString("reason")).append("\n**-------------------------------------------------------**\n");
+					System.out.println(builder.toString());
 
-				if(builder.length() < 1) {
-					builder.append("No logs found");
-				}
+			}
 
-				}, id);
+			if(!resultSet.next()) {
+			builder.append("No logs found.");
+			}
+		}, id);
+
+		System.out.println(builder.toString());
+
 		return builder.toString();
 	}
 }
