@@ -1,0 +1,67 @@
+---
+kind: pipeline
+type: docker
+name: default
+
+steps:
+  # Restore maven cache from local filesystem
+  - name: restoring cache
+    image: drillster/drone-volume-cache
+    volumes:
+      - name: cache
+        path: /cache
+      - name: maven-cache
+        path: /root/.m2
+    settings:
+      restore: true
+      mount:
+        - /root/.m2
+
+  # Compile artifacts with maven
+  - name: compiling artifacts
+    image: maven:3-jdk-8
+    volumes:
+      - name: maven-cache
+        path: /root/.m2
+    commands:
+      - for bots in images/bots/*; do mvn clean package assembly:single && mv target/ $bots; done
+
+  # Build and publish Docker images
+  - name: building & publishing image
+    image: docker:dind
+    network_mode: host
+    volumes:
+      - name: dockersock
+        path: /var/run/docker.sock
+    commands:
+      - for image in images/bots/*; do docker build $image -t localhost:5000/${DRONE_BRANCH}-$(basename $image | tr '[:upper:]' '[:lower:]') && docker push localhost:5000/${DRONE_BRANCH}-$(basename $image | tr '[:upper:]' '[:lower:]'); done
+      - echo "[INFO]" Bot image published
+
+  # Save the cache in the local filesystem
+  - name: rebuilding cache
+    image: drillster/drone-volume-cache
+    volumes:
+      - name: cache
+        path: /cache
+      - name: maven-cache
+        path: /root/.m2
+    settings:
+      rebuild: true
+      mount:
+        - /root/.m2
+
+volumes:
+  - name: dockersock
+    host:
+      path: /var/run/docker.sock
+  - name: cache
+    host:
+      path: /tmp/
+  - name: maven-cache
+    temp: {}
+
+trigger:
+  branch:
+    - master
+  event:
+    - push
