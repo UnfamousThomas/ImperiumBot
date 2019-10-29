@@ -34,7 +34,7 @@ public class OnReadyEvent implements EventListener {
 			//Set g:
 			BotSettings.g = event.getJDA().getGuildById(588997785861226508L);
 
-			MySQLManager.init("localhost", "imperiumbot", "root", null);
+			MySQLManager.init("164.132.207.169", "imperiumbot", "discord", "918dHpPBuhLeIcpC");
 			RedisManager.init();
 			MySQLManager.createTable("member_codes"," `id` INT NOT NULL AUTO_INCREMENT , `code` TEXT NULL , `role` BIGINT NOT NULL , `active` BOOLEAN NOT NULL DEFAULT TRUE , `made_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , `used_at` DATETIME NULL DEFAULT NULL , PRIMARY KEY (`id`)");
 			MySQLManager.createTable("message_edits", " `id` INT NOT NULL AUTO_INCREMENT , `message_id` BIGINT NOT NULL, `current_message` TEXT NOT NULL , `last_edited` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , `deleted` BOOLEAN NOT NULL, `editamount` INT NOT NULL , `author_id` BIGINT NOT NULL, PRIMARY KEY (`id`) ");
