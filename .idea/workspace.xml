@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8d953f1b-5d8f-4eff-b4d0-912f059311ef" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/guild/imperium/events/OnReadyEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/guild/imperium/events/OnReadyEvent.java" afterDir="false" />
-    </list>
+    <list default="true" id="8d953f1b-5d8f-4eff-b4d0-912f059311ef" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +161,7 @@
       <workItem from="1572111006667" duration="6694000" />
       <workItem from="1572184591102" duration="27351000" />
       <workItem from="1572260070074" duration="16095000" />
-      <workItem from="1572348877202" duration="11800000" />
+      <workItem from="1572348877202" duration="12186000" />
     </task>
     <servers />
   </component>

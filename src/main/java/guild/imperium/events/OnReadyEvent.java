@@ -65,6 +65,8 @@ public class OnReadyEvent implements EventListener {
 				RedisManager.registerPayload(clazz);
 			}
 
+			BotSettings.g.getTextChannelById(BotSettings.SECRETBOTCOMMANDS).sendMessage("Welcome back! Bot enabled.").queue();
+
 		}
 	}
 }
