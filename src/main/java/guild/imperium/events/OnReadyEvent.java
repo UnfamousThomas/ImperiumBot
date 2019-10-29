@@ -1,5 +1,6 @@
 package guild.imperium.events;
 
+import guild.imperium.ImperiumBot;
 import guild.imperium.commands.NewsCommand;
 import guild.imperium.commands.api.BotSettings;
 import guild.imperium.commands.api.DiscordCommandManager;
@@ -11,10 +12,12 @@ import guild.imperium.commands.punish.PunishLogCommand;
 import guild.imperium.events.history.OnGuildMessageDeleteEvent;
 import guild.imperium.events.history.OnGuildMessageEvent;
 import guild.imperium.events.history.OnGuildMessageUpdateEvent;
+import guild.imperium.object.UserObject;
 import guild.imperium.utils.Logger;
 import guild.imperium.utils.mysql.MySQLManager;
 import guild.imperium.utils.redis.RedisManager;
 import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.GenericEvent;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.hooks.EventListener;
@@ -49,6 +52,8 @@ public class OnReadyEvent implements EventListener {
 			jda.addEventListener(new OnGuildMessageUpdateEvent());
 			jda.addEventListener(new OnGuildMessageDeleteEvent());
 			Logger.log(Logger.Level.SUCCESS, "Successfully registered listeners.");
+			BotSettings.g.getMembers().forEach(member -> ImperiumBot.getInstance().getManager().addUser(new UserObject(member.getIdLong())));
+
 
 
 		}

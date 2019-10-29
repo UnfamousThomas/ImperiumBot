@@ -1,7 +1,9 @@
 package guild.imperium.commands.punish;
 
+import guild.imperium.ImperiumBot;
 import guild.imperium.commands.api.BotSettings;
 import guild.imperium.commands.api.DiscordCommand;
+import guild.imperium.object.PunishPointObject;
 import guild.imperium.utils.mysql.MySQLManager;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Member;
@@ -64,7 +66,7 @@ public class PunishCommand extends DiscordCommand {
 					channel.sendMessage("You got " + points + " points added to your punishment record, the reason is " + reason + ". If you wish to appeal provide the unique identifier. The unique identifier is: " + UUID).queue();
 				});
 				e.getGuild().getTextChannelById(BotSettings.MODLOG).sendMessage(log(points, reason, punisher, punished, UUID)).queue();
-
+				ImperiumBot.getInstance().getManager().ResetUsers();
 			} else {
 				Punish(punisher, punished, points, reason, e);
 
