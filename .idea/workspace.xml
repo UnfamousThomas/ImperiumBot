@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8d953f1b-5d8f-4eff-b4d0-912f059311ef" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/guild/imperium/events/OnReadyEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/guild/imperium/events/OnReadyEvent.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,6 +64,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="guild.imperium.utils.redis.payloads" />
       <recent name="guild.imperium.events" />
       <recent name="guild.imperium.commands.api" />
     </key>
@@ -162,7 +165,7 @@
       <workItem from="1572111006667" duration="6694000" />
       <workItem from="1572184591102" duration="27351000" />
       <workItem from="1572260070074" duration="16095000" />
-      <workItem from="1572348877202" duration="10873000" />
+      <workItem from="1572348877202" duration="11247000" />
     </task>
     <servers />
   </component>

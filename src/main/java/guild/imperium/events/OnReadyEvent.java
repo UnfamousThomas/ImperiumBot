@@ -16,11 +16,13 @@ import guild.imperium.object.UserObject;
 import guild.imperium.utils.Logger;
 import guild.imperium.utils.mysql.MySQLManager;
 import guild.imperium.utils.redis.RedisManager;
+import guild.imperium.utils.redis.payloads.Payload;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.GenericEvent;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.hooks.EventListener;
+import org.reflections.Reflections;
 
 import javax.annotation.Nonnull;
 
@@ -56,7 +58,10 @@ public class OnReadyEvent implements EventListener {
 
 			BotSettings.g.getMembers().forEach(member -> ImperiumBot.getInstance().getManager().addUser(new UserObject(member.getIdLong())));
 
-
+			for (Class<? extends Payload> clazz : new Reflections("us.unfamousthomas.redis.payloads").getSubTypesOf(Payload.class)) {
+				System.out.println("[Redis] Registering " + clazz.getSimpleName());
+				RedisManager.registerPayload(clazz);
+			}
 
 		}
 	}
