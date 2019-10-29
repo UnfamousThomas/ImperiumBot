@@ -7,6 +7,7 @@ import guild.imperium.commands.api.DiscordCommandManager;
 import guild.imperium.commands.api.HelpCommand;
 import guild.imperium.commands.ClearCommand;
 import guild.imperium.commands.CodeCommand;
+import guild.imperium.commands.dev.RestartCommand;
 import guild.imperium.commands.punish.PunishCommand;
 import guild.imperium.commands.punish.PunishLogCommand;
 import guild.imperium.events.history.OnGuildMessageDeleteEvent;
@@ -46,6 +47,7 @@ public class OnReadyEvent implements EventListener {
 			DiscordCommandManager.registerCommand(new HelpCommand("Apprentice - Recruit"), "help");
 			DiscordCommandManager.registerCommand(new PunishCommand("Master - Captain"), "punish", "p");
 			DiscordCommandManager.registerCommand(new PunishLogCommand("Master - Captain"), "punishlog", "pl");
+			DiscordCommandManager.registerCommand(new RestartCommand("Duke - Captain"), "restart", "re");
 
 			//Register listeners:
 			JDA jda = event.getJDA();
