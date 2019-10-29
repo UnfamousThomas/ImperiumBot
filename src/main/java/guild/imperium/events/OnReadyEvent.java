@@ -35,7 +35,7 @@ public class OnReadyEvent implements EventListener {
 			RedisManager.init();
 			MySQLManager.createTable("member_codes"," `id` INT NOT NULL AUTO_INCREMENT , `code` TEXT NULL , `role` BIGINT NOT NULL , `active` BOOLEAN NOT NULL DEFAULT TRUE , `made_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , `used_at` DATETIME NULL DEFAULT NULL , PRIMARY KEY (`id`)");
 			MySQLManager.createTable("message_edits", " `id` INT NOT NULL AUTO_INCREMENT , `message_id` BIGINT NOT NULL, `current_message` TEXT NOT NULL , `last_edited` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , `deleted` BOOLEAN NOT NULL, `editamount` INT NOT NULL , `author_id` BIGINT NOT NULL, PRIMARY KEY (`id`) ");
-			MySQLManager.createTable("punishment_points", "`id` INT NOT NULL AUTO_INCREMENT , UUID TEXT NOT NULL, `userid` BIGINT NOT NULL , `executor` BIGINT NOT NULL ,`amount` INT NOT NULL , `assigned_at` DATETIME NOT NULL , `expires_at` DATETIME NOT NULL ,`reason` TEXT NOT NULL, PRIMARY KEY (`id`)");
+			MySQLManager.createTable("punishment_points", "`id` INT NOT NULL AUTO_INCREMENT , UUID TEXT NOT NULL, `userid` BIGINT NOT NULL , `executor` BIGINT NOT NULL ,`amount` INT NOT NULL , `assigned_at` DATETIME NOT NULL , `expires_at` DATETIME NOT NULL ,`reason` TEXT NOT NULL, `active` BOOLEAN NOT NULL DEFAULT TRUE, PRIMARY KEY (`id`)");
 			MySQLManager.createTable("news_list"," `id` INT NOT NULL AUTO_INCREMENT , `member_id` BIGINT NOT NULL , PRIMARY KEY (`id`)");
 			DiscordCommandManager.init();
 			DiscordCommandManager.registerCommand(new CodeCommand("Prince - Chief"), "code");
@@ -52,6 +52,8 @@ public class OnReadyEvent implements EventListener {
 			jda.addEventListener(new OnGuildMessageUpdateEvent());
 			jda.addEventListener(new OnGuildMessageDeleteEvent());
 			Logger.log(Logger.Level.SUCCESS, "Successfully registered listeners.");
+
+
 			BotSettings.g.getMembers().forEach(member -> ImperiumBot.getInstance().getManager().addUser(new UserObject(member.getIdLong())));
 
 

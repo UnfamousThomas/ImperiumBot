@@ -13,7 +13,6 @@ public class UserObject {
 		this.id = id;
 		MySQLManager.select("SELECT * FROM punishment_points WHERE userid=?", resultSet -> {
 			while(resultSet.next()) {
-
 				addPunishments(new PunishPointObject(id, resultSet.getLong("executor"), resultSet.getString("reason"), resultSet.getInt("amount"), resultSet.getString("UUID"), resultSet.getTimestamp("assigned_at"), resultSet.getTimestamp("expires_at")));
 			}
 		}, id);
@@ -21,7 +20,6 @@ public class UserObject {
 
 	private void addPunishments(PunishPointObject punishPointObject) {
 		this.punishments.add(punishPointObject);
-		System.out.println(this.punishments);
 	}
 
 	public List<PunishPointObject> getPunishments() {

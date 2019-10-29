@@ -13,6 +13,7 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import org.apache.commons.lang3.RandomStringUtils;
 
 import java.awt.*;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -66,7 +67,7 @@ public class PunishCommand extends DiscordCommand {
 					channel.sendMessage("You got " + points + " points added to your punishment record, the reason is " + reason + ". If you wish to appeal provide the unique identifier. The unique identifier is: " + UUID).queue();
 				});
 				e.getGuild().getTextChannelById(BotSettings.MODLOG).sendMessage(log(points, reason, punisher, punished, UUID)).queue();
-				ImperiumBot.getInstance().getManager().ResetUsers();
+				ImperiumBot.getInstance().getManager().getUser(punished.getIdLong()).getPunishments().add(new PunishPointObject(punished.getIdLong(), punisher.getIdLong(), reason, points, UUID,new Timestamp(System.currentTimeMillis()), new Timestamp(System.currentTimeMillis() + 5184000000L)));
 			} else {
 				Punish(punisher, punished, points, reason, e);
 

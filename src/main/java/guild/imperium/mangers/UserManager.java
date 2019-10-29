@@ -22,12 +22,4 @@ public class UserManager {
 		return userObjectLongMap.get(id);
 	}
 
-	public void ResetUsers() {
-		for (UserObject value : userObjectLongMap.values()) {
-			value = null;
-		}
-		userObjectLongMap = null;
-		BotSettings.g.getMembers().forEach(member -> ImperiumBot.getInstance().getManager().addUser(new UserObject(member.getIdLong())));
-
-	}
 	}
