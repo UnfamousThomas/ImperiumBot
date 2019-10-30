@@ -22,7 +22,7 @@ public class DiscordCommandManager extends ListenerAdapter {
 
 
     public static void registerCommand(DiscordCommand command, String name, String... aliases){
-        Logger.log(Logger.Level.SUCCESS, "Attempting to register discord command: " + name);
+        Logger.log(Logger.Level.INFO, "Attempting to register discord command: " + name);
         instance.commands.put(name.toLowerCase(), command);
 
         for(String alias : aliases)
