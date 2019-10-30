@@ -55,6 +55,8 @@ public class OnReadyEvent implements EventListener {
 			jda.addEventListener(new OnVerifyCode());
 			jda.addEventListener(new OnGuildMessageUpdateEvent());
 			jda.addEventListener(new OnGuildMessageDeleteEvent());
+			jda.addEventListener(new onGuildJoinEvent());
+			jda.addEventListener(new onGuildLeaveEvent());
 			Logger.log(Logger.Level.SUCCESS, "Successfully registered listeners.");
 
 
