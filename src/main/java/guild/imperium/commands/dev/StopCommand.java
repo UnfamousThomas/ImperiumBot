@@ -10,7 +10,8 @@ import java.util.List;
 
 public class StopCommand extends DiscordCommand {
 	public StopCommand(String rank) {
-		super(rank, "restart");
+		super(rank, "stop");
+		description = "Stops the bot.";
 	}
 	@Override
 	public void run(Member m, List<String> args, MessageReceivedEvent e) {

@@ -11,6 +11,8 @@ import java.util.List;
 public class RestartCommand extends DiscordCommand {
 	public RestartCommand(String rank) {
 		super(rank, "restart");
+		description = "Restarts the bot using the new image.";
+
 	}
 	@Override
 	public void run(Member m, List<String> args, MessageReceivedEvent e) {
