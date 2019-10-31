@@ -1,4 +1,4 @@
-package guild.imperium.commands.punish;
+package guild.imperium.commands.mod.punish;
 
 import guild.imperium.ImperiumBot;
 import guild.imperium.commands.api.BotSettings;
@@ -8,7 +8,6 @@ import guild.imperium.utils.mysql.MySQLManager;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.MessageEmbed;
-import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import org.apache.commons.lang3.RandomStringUtils;
 

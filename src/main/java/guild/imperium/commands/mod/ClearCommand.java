@@ -1,4 +1,4 @@
-package guild.imperium.commands;
+package guild.imperium.commands.mod;
 
 import guild.imperium.commands.api.BotSettings;
 import guild.imperium.commands.api.DiscordCommand;

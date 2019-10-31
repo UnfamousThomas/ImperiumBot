@@ -1,4 +1,4 @@
-package guild.imperium.commands.punish;
+package guild.imperium.commands.mod.punish;
 
 import guild.imperium.ImperiumBot;
 import guild.imperium.commands.api.BotSettings;
