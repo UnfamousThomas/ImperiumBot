@@ -24,10 +24,10 @@ public class PunishLogCommand extends DiscordCommand {
 	@Override
 	public void run(Member m, List<String> args, MessageReceivedEvent e) {
 		switch (args.size()) {
-			case 1:
+			case 0:
 				sendPunishments(e, m);
 				break;
-			case 2:
+			case 1:
 				if(e.getMessage().getMentionedMembers().size() == 1) {
 					Member member = e.getMessage().getMentionedMembers().get(0);
 					sendPunishments(e, member);

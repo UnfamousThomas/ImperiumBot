@@ -26,7 +26,7 @@ public class PunishCommand extends DiscordCommand {
 	}
 	@Override
 	public void run(Member m, List<String> args, MessageReceivedEvent e) {
-		if(e.getMessage().getMentionedMembers().size() == 1 && args.size() >= 4) {
+		if(e.getMessage().getMentionedMembers().size() == 1) {
 			Member member = e.getMessage().getMentionedMembers().get(0);
 			Integer points = Integer.valueOf(args.get(2));
 			args.remove(0);
@@ -35,9 +35,9 @@ public class PunishCommand extends DiscordCommand {
 			String reason = String.join(" ", args);
 			Punish(m, member, points, reason, e);
 
-		} else if(BotSettings.g.getMemberById(Long.parseLong(args.get(1))) != null) {
-			Member member = BotSettings.g.getMemberById(Long.parseLong(args.get(1)));
-			Integer points = Integer.valueOf(args.get(2));
+		} else if(BotSettings.g.getMemberById(Long.parseLong(args.get(0))) != null) {
+			Member member = BotSettings.g.getMemberById(Long.parseLong(args.get(0)));
+			Integer points = Integer.valueOf(args.get(1));
 			args.remove(0);
 			args.remove(0);
 			args.remove(0);

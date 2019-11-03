@@ -18,12 +18,12 @@ import java.util.concurrent.TimeUnit;
 public class NewsCommand extends DiscordCommand {
 	public NewsCommand(String rank) {
 		super(rank, "news");
+		minArgs = 2;
 		description = "publish & subscribe! | Lets the higher ups publish news and others to subscribe to the news.";
 	}
 
 	@Override
 	public void run(Member m, List<String> args, MessageReceivedEvent e) {
-		if(args.size() >= 2) {
 			switch (args.get(1)) {
 				case "publish":
 					if(RoleHierarchy.isHigherorEqualsRole(e.getMember().getRoles().get(0),BotSettings.g.getRolesByName("Duke - Captain", true).get(0))) {
@@ -64,7 +64,7 @@ public class NewsCommand extends DiscordCommand {
 					break;
 			}
 		}
-	}
+	//TODO: CONVERT PUBLISH & SUBSCRIVE TO SUBCOMMANDS
 
 	private MessageEmbed announceMaker(String news, Member m) {
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
