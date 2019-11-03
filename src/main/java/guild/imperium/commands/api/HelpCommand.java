@@ -11,7 +11,6 @@ import java.util.List;
 public class HelpCommand extends DiscordCommand {
 	public HelpCommand(String rank) {
 		super(rank, "help");
-		minArgs = 0;
 		maxArgs = 2;
 		description = "Shows you commands";
 	}

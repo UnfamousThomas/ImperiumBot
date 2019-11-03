@@ -29,22 +29,13 @@ public abstract class DiscordCommand extends ListenerAdapter {
         this.name = name;
     }
 
-    public void execute(MessageReceivedEvent e, List<String> args) {
-        if(args.size() > maxArgs || args.size() < minArgs ) { e.getChannel().sendMessage("Invalid args."); return; }
-        if(!(e.getChannelType().isGuild())) return;
-            if(RoleHierarchy.isHigherorEqualsRole(e.getMember().getRoles().get(0), role)) {
-                run(e.getMember(), args, e);
-            } else {
-            e.getChannel().sendMessage("Insufficient permissions for that command.").queue(message -> message.delete().queueAfter(1, TimeUnit.MINUTES));
-            }
-    }
 
-    public void executor(MessageReceivedEvent event, List<String> args) {
+    public void execute(MessageReceivedEvent event, List<String> args) {
         if(args.size() > 0) {
             DiscordCommand subcommand = subcommands.get(args.get(0).toLowerCase());
             if(subcommand != null) {
                 args.remove(0);
-                subcommand.executor(event, args);
+                subcommand.execute(event, args);
                 return;
             }
         }

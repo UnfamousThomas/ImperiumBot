@@ -52,7 +52,7 @@ public class DiscordCommandManager extends ListenerAdapter {
 
         String[] argArray = event.getMessage().getContentRaw().split(" ");
         if(!event.getAuthor().isBot()) {
-            if (argArray.length != 0 && argArray[0].startsWith(BotSettings.PREFIX)) {
+            if (argArray[0].startsWith(BotSettings.PREFIX)) {
             String commandStr = argArray[0].substring(1);
 
             List<String> argsList = new ArrayList<>(Arrays.asList(argArray));
