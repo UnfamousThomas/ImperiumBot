@@ -31,6 +31,7 @@ public abstract class DiscordCommand extends ListenerAdapter {
 
 
     public void execute(MessageReceivedEvent event, List<String> args) {
+        System.out.println("1");
         if(args.size() > 0) {
             DiscordCommand subcommand = subcommands.get(args.get(0).toLowerCase());
             if(subcommand != null) {
@@ -39,12 +40,13 @@ public abstract class DiscordCommand extends ListenerAdapter {
                 return;
             }
         }
+        System.out.println("2");
 
         if(args.size() < minArgs || args.size() > maxArgs) {
             event.getChannel().sendMessage("Invalid usage.").queue();
             return;
         }
-
+        System.out.println("3");
         run(event.getMember(), args, event);
     }
 

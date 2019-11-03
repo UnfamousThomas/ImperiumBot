@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8d953f1b-5d8f-4eff-b4d0-912f059311ef" name="Default Changelist" comment="" />
+    <list default="true" id="8d953f1b-5d8f-4eff-b4d0-912f059311ef" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/guild/imperium/commands/api/DiscordCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/guild/imperium/commands/api/DiscordCommand.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +167,7 @@
       <workItem from="1572450632628" duration="2977000" />
       <workItem from="1572535343513" duration="1942000" />
       <workItem from="1572616479524" duration="1650000" />
-      <workItem from="1572808553009" duration="1144000" />
+      <workItem from="1572808553009" duration="1495000" />
     </task>
     <servers />
   </component>
