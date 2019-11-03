@@ -41,14 +41,16 @@ public class OnReadyEvent implements EventListener {
 			MySQLManager.createTable("punishment_points", "`id` INT NOT NULL AUTO_INCREMENT , UUID TEXT NOT NULL, `userid` BIGINT NOT NULL , `executor` BIGINT NOT NULL ,`amount` INT NOT NULL , `assigned_at` DATETIME NOT NULL , `expires_at` DATETIME NOT NULL ,`reason` TEXT NOT NULL, `active` BOOLEAN NOT NULL DEFAULT TRUE, PRIMARY KEY (`id`)");
 			MySQLManager.createTable("news_list"," `id` INT NOT NULL AUTO_INCREMENT , `member_id` BIGINT NOT NULL , PRIMARY KEY (`id`)");
 			DiscordCommandManager.init();
-			DiscordCommandManager.registerCommand(new CodeCommand("Prince - Chief"), "code");
-			DiscordCommandManager.registerCommand(new ClearCommand("Duke - Captain"), "clear", "c");
-			DiscordCommandManager.registerCommand(new NewsCommand("Apprentice - Recruit"), "news","announce");
-			DiscordCommandManager.registerCommand(new HelpCommand("Apprentice - Recruit"), "help");
-			DiscordCommandManager.registerCommand(new PunishCommand("Master - Captain"), "punish", "p");
-			DiscordCommandManager.registerCommand(new PunishLogCommand("Master - Captain"), "punishlog", "pl");
-			DiscordCommandManager.registerCommand(new RestartCommand("Duke - Captain"), "restart", "re");
-			DiscordCommandManager.registerCommand(new StopCommand("Duke - Captain"), "stop");
+			DiscordCommandManager.registerCommands(
+					new CodeCommand("Prince - Chief"),
+					new ClearCommand("Duke - Captain"),
+					new NewsCommand("Apprentice - Recruit"),
+					new HelpCommand("Apprentice - Recruit"),
+					new PunishCommand("Master - Captain"),
+					new PunishLogCommand("Master - Captain"),
+					new RestartCommand("Duke - Captain"),
+					new StopCommand("Duke - Captain")
+			);
 
 			//Register listeners:
 			JDA jda = event.getJDA();

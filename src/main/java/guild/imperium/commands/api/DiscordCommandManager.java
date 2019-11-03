@@ -21,15 +21,21 @@ public class DiscordCommandManager extends ListenerAdapter {
     private HelpManager helpManager;
 
 
-    public static void registerCommand(DiscordCommand command, String name, String... aliases){
-        Logger.log(Logger.Level.INFO, "Attempting to register discord command: " + name);
-        instance.commands.put(name.toLowerCase(), command);
+    public static void registerCommand(DiscordCommand command){
+        Logger.log(Logger.Level.INFO, "Attempting to register discord command: " + command.name);
+        instance.commands.put(command.name.toLowerCase(), command);
 
-        for(String alias : aliases)
+        for(String alias : command.aliases)
             instance.commands.put(alias.toLowerCase(), command);
 
         instance.helpManager.registerHelpItem(command);
-        Logger.log(Logger.Level.SUCCESS, "Registered discord command: " + name);
+        Logger.log(Logger.Level.SUCCESS, "Registered discord command: " + command.name);
+
+    }
+
+    public static void registerCommands(DiscordCommand... commands){
+        for(DiscordCommand command : commands)
+            registerCommand(command);
 
     }
 
@@ -46,10 +52,11 @@ public class DiscordCommandManager extends ListenerAdapter {
 
         String[] argArray = event.getMessage().getContentRaw().split(" ");
         if(!event.getAuthor().isBot()) {
-            if (argArray.length != 0 && argArray[0].startsWith(BotSettings.PREFIX) && !(event.getAuthor().isBot())) {
+            if (argArray.length != 0 && argArray[0].startsWith(BotSettings.PREFIX)) {
             String commandStr = argArray[0].substring(1);
 
             List<String> argsList = new ArrayList<>(Arrays.asList(argArray));
+                argsList.remove(0);
 
             if (commands.containsKey(commandStr.toLowerCase())) {
                 commands.get(commandStr.toLowerCase()).execute(event, argsList);

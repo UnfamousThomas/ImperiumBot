@@ -7,7 +7,6 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.awt.*;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class HelpCommand extends DiscordCommand {
 	public HelpCommand(String rank) {
