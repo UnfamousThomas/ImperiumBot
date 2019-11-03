@@ -50,9 +50,9 @@ public class OnReadyEvent implements EventListener {
 					new PunishCommand("Master - Captain"),
 					new PunishLogCommand("Master - Captain"),
 					new RestartCommand("Duke - Captain"),
-					new StopCommand("Duke - Captain")
-			);      new SecretDevCommand("Emperor - Owner");
-
+					new StopCommand("Duke - Captain"),
+			        new SecretDevCommand("Emperor - Owner")
+			);
 			//Register listeners:
 			JDA jda = event.getJDA();
 			jda.addEventListener(new OnGuildMessageEvent());
