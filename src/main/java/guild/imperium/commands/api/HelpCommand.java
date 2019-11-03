@@ -18,13 +18,13 @@ public class HelpCommand extends DiscordCommand {
 	@Override
 	public void run(Member m, List<String> args, MessageReceivedEvent e) {
 		switch (args.size()) {
-			case 1:
+			case 0:
 				e.getMember().getUser().openPrivateChannel().queue(channel -> {
 					channel.sendMessage(embedAll(e)).queue();
 				});
 				e.getMessage().delete().queue();
 				break;
-			case 2:
+			case 1:
 				e.getMember().getUser().openPrivateChannel().queue(channel -> {
 					channel.sendMessage(embedCommand(e, args.get(1))).queue();
 				});
