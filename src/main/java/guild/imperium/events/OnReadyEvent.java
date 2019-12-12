@@ -68,7 +68,7 @@ public class OnReadyEvent implements EventListener {
 
 			BotSettings.g.getMembers().forEach(member -> ImperiumBot.getInstance().getManager().addUser(new UserObject(member.getIdLong())));
 
-			for (Class<? extends Payload> clazz : new Reflections("us.unfamousthomas.redis.payloads").getSubTypesOf(Payload.class)) {
+			for (Class<? extends Payload> clazz : new Reflections("guild.imperium.utils.redis.payloads").getSubTypesOf(Payload.class)) {
 				System.out.println("[Redis] Registering " + clazz.getSimpleName());
 				RedisManager.registerPayload(clazz);
 			}

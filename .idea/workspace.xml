@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d953f1b-5d8f-4eff-b4d0-912f059311ef" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/guild/imperium/events/OnReadyEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/guild/imperium/events/OnReadyEvent.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -170,7 +169,7 @@
       <workItem from="1572535343513" duration="1942000" />
       <workItem from="1572616479524" duration="1650000" />
       <workItem from="1572808553009" duration="3203000" />
-      <workItem from="1576168446399" duration="102000" />
+      <workItem from="1576168446399" duration="410000" />
     </task>
     <servers />
   </component>
