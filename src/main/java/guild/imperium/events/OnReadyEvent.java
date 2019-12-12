@@ -2,6 +2,7 @@ package guild.imperium.events;
 
 import guild.imperium.ImperiumBot;
 import guild.imperium.commands.admin.NewsCommand;
+import guild.imperium.commands.admin.PictureCommand;
 import guild.imperium.commands.api.BotSettings;
 import guild.imperium.commands.api.DiscordCommandManager;
 import guild.imperium.commands.api.HelpCommand;
@@ -51,7 +52,8 @@ public class OnReadyEvent implements EventListener {
 					new PunishLogCommand("Master - Captain"),
 					new RestartCommand("Duke - Captain"),
 					new StopCommand("Duke - Captain"),
-			        new SecretDevCommand("Emperor - Owner")
+			        new SecretDevCommand("Emperor - Owner"),
+					new PictureCommand("Emperor - Owner")
 			);
 			//Register listeners:
 			JDA jda = event.getJDA();
